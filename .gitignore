@@ -1,0 +1,4 @@
+.env
+blogger/db.sqlite3
+blogger/blogger/__pycache__/
+.vscode/
