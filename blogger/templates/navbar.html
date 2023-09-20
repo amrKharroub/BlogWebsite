@@ -1,6 +1,10 @@
+{% load static %}
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
-        <a class="navbar-brand logo " href="#">Large</a>
+        <a class="navbar-brand navbar-brand-image logo " href="#">
+            <img src="{% static 'photos/logoImg.svg'%}" width="50" height="50"
+                class="d-inline-block align-text-top">Large
+        </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
