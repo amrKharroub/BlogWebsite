@@ -2,3 +2,5 @@
 blogger/db.sqlite3
 blogger/blogger/__pycache__/
 .vscode/
+blogger/blog/tests/__pycache__/
+blogger/blog/tests/factories/__pycache__/
