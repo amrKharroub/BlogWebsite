@@ -4,3 +4,6 @@ blogger/blogger/__pycache__/
 .vscode/
 blogger/blog/tests/__pycache__/
 blogger/blog/tests/factories/__pycache__/
+blogger/static/
+blogger/blog/templatetags/__pycache__/
+blogger/blog/tests/test_views/__pycache__/

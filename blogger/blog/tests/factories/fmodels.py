@@ -1,6 +1,9 @@
 import factory
 from django.contrib.auth.models import User
 from blog.models import Post
+from faker import Faker
+
+FAKE = Faker()
 
 
 class UserFactory(factory.django.DjangoModelFactory):
@@ -21,12 +24,23 @@ class PostFactory(factory.django.DjangoModelFactory):
     subtitle = factory.Faker("sentence", nb_words=7)
     slug = factory.Faker("slug")
     author = factory.SubFactory(UserFactory)
+    factory.faker.Faker
 
+    @factory.lazy_attribute
     def content(self):
         x = ""
-        FAKER = factory.Faker()
         for _ in range(5):
-            x += FAKER.paragraph(sentences=30) + "\n"
+            x += FAKE.paragraph(nb_sentences=30) + "\n"
         return x
 
     published = True
+
+    # I have no idea what it means
+    @factory.post_generation
+    def tags(self, create, extended, **kwargs):
+        if not create:
+            return None
+        if extended:
+            self.tags.add(*extended)
+        else:
+            self.tags.add("python", "web development", "htmx", "ML", "Back-End")

@@ -7,6 +7,9 @@ name = "pypi"
 django = "*"
 python-decouple = "*"
 factory-boy = "*"
+django-htmx = "*"
+django-taggit = "*"
+faker = "*"
 
 [dev-packages]
 

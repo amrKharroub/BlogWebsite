@@ -1,4 +1,5 @@
 {% extends '../base.html'%}
+{% load tag_cloud %}
 
 {% block content %}
 <header>
@@ -9,27 +10,12 @@
 <div class="container pt-4">
     <div class="row">
         <div class="col-12 col-lg-8">
-            {% for post in posts %}
-            <a class="text-decoration-none" href="#">
-                <div class="card border-0 pb-3 pb-sm-5">
-                    <div class="row">
-                        <div class="col-8">
-                            <div class="card-body p-0">
-                                <div class="pb-2 text-body dfs">{{post.author}}</div>
-                                <h1 class="mb-1 text-body fw-bold dfsize">{{post.title|truncatechars:70}}</h1>
-                                <h2 class="text-muted fs-6 d-none d-md-block">{{post.subtitle}}</h2>
-                                <div class="text-muted mt-1 dfs">{{post.updated_at | date:"M d Y"}}</div>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <img src="https://picsum.photos/205/115" alt="someImage" class="img-fluid float-end">
-                        </div>
-                    </div>
-                </div>
-            </a>
-            {% endfor %}
+            {% include './components/list_elements.html' %}
         </div>
         <div class="d-none d-lg-block col-4">
+            <h4 class="pb-2 fw-bold fs-14">DISCOVER MORE OF WHAT MATTERS TO YOU</h4>
+            {% sidebar_tags %}
+            {% include '../partials/_footer.html' %}
         </div>
     </div>
 </div>
