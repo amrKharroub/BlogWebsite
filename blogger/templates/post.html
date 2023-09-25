@@ -1,0 +1,15 @@
+{% extends "./components/3-col-template.html" %}
+
+{% block content-left %}
+{% include "./components/col-navbar.html" %}
+{% endblock %}
+{% block content-mid %}
+<div class="blogger center mx-auto " style="max-width: 683px;">
+    <h1 class="fw-bold">{{post.title}}</h1>
+    <h4 class="text-muted fs-5">{{post.subtitle}}</h4>
+    <h4 class="text-muted pb-4 mt-1 fs-6">{{ post.author }} . {{post.updated_at| date:"M d Y"}}</h4>
+    <p>{{post.content}}</p>
+</div>
+{% endblock%}
+
+{% block content-right %} something to the right {% endblock %}

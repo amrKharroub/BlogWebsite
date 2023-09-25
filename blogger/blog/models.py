@@ -1,13 +1,14 @@
 from django.db import models
 from django.contrib.auth.models import User
 from taggit.managers import TaggableManager
+from django.urls import reverse
 
 
 # Create your models here.
 class Post(models.Model):
     title = models.CharField(max_length=250)
     subtitle = models.CharField(max_length=100)
-    slug = models.SlugField(max_length=50, unique=True)
+    slug = models.SlugField(max_length=150, unique=True, null=False)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="post_author"
     )
@@ -19,6 +20,9 @@ class Post(models.Model):
 
     class Meta:
         ordering = ("-created_at",)
+
+    def get_absolute_url(self):
+        return reverse("post-detail", kwargs={"slug": self.slug})
 
     def __str__(self) -> str:
         return self.title

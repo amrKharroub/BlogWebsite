@@ -35,7 +35,7 @@ class PostFactory(factory.django.DjangoModelFactory):
 
     published = True
 
-    # I have no idea what it means
+    # garantee to run after the creation of related fields
     @factory.post_generation
     def tags(self, create, extended, **kwargs):
         if not create:

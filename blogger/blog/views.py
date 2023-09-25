@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from .models import Post
 
 
@@ -17,3 +17,10 @@ class HomeView(ListView):
         return [
             "blog/index.html",
         ]
+
+
+class PostDetails(DetailView):
+    model = Post
+    context_object_name = "post"
+    template_name = "post.html"
+    pass

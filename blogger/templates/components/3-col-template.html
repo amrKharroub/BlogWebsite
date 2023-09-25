@@ -1,0 +1,12 @@
+{% extends "../base.html" %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <!-- implement this layout properly -->
+        <div class="col-navbar">{% block content-left %} {% endblock %}</div>
+        <div class="col-12 col-lg-8">{% block content-mid %} {% endblock %}</div>
+        <div class="d-none d-lg-block col-lg-3">{% block content-right %} {% endblock %}</div>
+    </div>
+</div>
+{% endblock %}
