@@ -51,3 +51,10 @@
     letter-spacing: -0.5px;
     margin-bottom: 0px;
 }
+
+.post-styling p{
+    font-family: mooli;
+    font-size: 1.0625rem;
+    line-height: 32px;
+    letter-spacing: 0.2px;
+}

@@ -1,3 +1,4 @@
+from typing import Any
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from .models import Post
@@ -23,4 +24,10 @@ class PostDetails(DetailView):
     model = Post
     context_object_name = "post"
     template_name = "post.html"
+
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        context["related"] = Post.objects.filter(author=self.get_object().author)[:5]
+        return context
+
     pass

@@ -8,8 +8,30 @@
     <h1 class="fw-bold">{{post.title}}</h1>
     <h4 class="text-muted fs-5">{{post.subtitle}}</h4>
     <h4 class="text-muted pb-4 mt-1 fs-6">{{ post.author }} . {{post.updated_at| date:"M d Y"}}</h4>
-    <p>{{post.content}}</p>
+    <div class="post-styling">
+        {{ post.content | markdown | safe }}
+    </div>
 </div>
 {% endblock%}
 
-{% block content-right %} something to the right {% endblock %}
+{% block content-right %}
+{% sidebar_tags %}
+<div class="col-12">
+    <div class="pb-3 fw-bold">More from {{ post.author }}</div>
+    {% for post in related %}
+    <a class="text-decoration-none" href="{{ post.get_absolute_url }}">
+        <div class="row">
+            <div class="col-8">
+                <div class="card-body p-0">
+                    <h1 class="mb-1 text-body fw-bold fs-6">{{post.title|truncatechars:70}}</h1>
+                    <div class="text-muted mt-1 small">{{post.updated_at | date:"M d Y"}}</div>
+                </div>
+            </div>
+            <div class="col-4 pt-2">
+                <img src="https://picsum.photos/205/115" alt="someImage" class="img-fluid float-end">
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+</div>
+{% endblock %}

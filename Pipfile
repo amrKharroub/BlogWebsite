@@ -10,6 +10,7 @@ factory-boy = "*"
 django-htmx = "*"
 django-taggit = "*"
 faker = "*"
+markdown = "*"
 
 [dev-packages]
 
