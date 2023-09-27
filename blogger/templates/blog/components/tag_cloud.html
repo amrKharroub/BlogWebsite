@@ -2,7 +2,7 @@
     <div class="pb-4">
         {% for tag in tags%}
         <span class="border border-dark p-1 px-3 mb-1 me-1 rounded-pill" style="display: inline-block;">
-            <a href="#" class="text-decoration-none text-dark fs-15">
+            <a href="/?tag={{ tag.name }}" class="text-decoration-none text-dark fs-15">
                 {{ tag.name}}
             </a>
         </span>

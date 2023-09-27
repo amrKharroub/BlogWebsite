@@ -10,6 +10,13 @@ class HomeView(ListView):
     context_object_name = "posts"
     paginate_by = 10
 
+    def get_queryset(self):
+        tag = self.request.GET.get("tag")
+        if tag:
+            return self.model.objects.filter(tags__name=tag)
+        else:
+            return super().get_queryset()
+
     def get_template_names(self) -> list[str]:
         if self.request.htmx:
             return [
