@@ -13,4 +13,4 @@ At this point the website is very simple, two pages and basic styling. The Goal 
 - infinite scroll
 
 How it looks for now
-![home page](images\HomePage.png)
+![home page](images/HomePage.png)
